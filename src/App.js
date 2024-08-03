@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import TaskList from "./components/TaskList";
+import "./App.css";
+import { useSearchParams } from "react-router-dom";
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchTerm = searchParams.get("search") || "";
+
+  const handleAddTask = (title, description) => {
+    const newTask = {
+      id: Date.now(),
+      title,
+      description,
+      completed: false,
+      timestamp: new Date().toISOString(),
+    };
+    setTasks((prevTasks) => [newTask, ...prevTasks]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <h1>Todo List</h1>
+      <div className="add-task">
+        <input id="titleInput" type="text" placeholder="Task title" />
+        <textarea
+          id="descriptionInput"
+          placeholder="Task description"
+        ></textarea>
+        <button
+          onClick={() =>
+            handleAddTask(
+              document.getElementById("titleInput").value,
+              document.getElementById("descriptionInput").value
+            )
+          }
         >
-          Learn React
-        </a>
-      </header>
+          Add Task
+        </button>
+      </div>
+      <TaskList
+        tasks={tasks}
+        setTasks={setTasks}
+        searchTerm={searchTerm}
+        setSearchParams={setSearchParams}
+      />
     </div>
   );
-}
+};
 
 export default App;

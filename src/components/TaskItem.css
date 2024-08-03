@@ -1,0 +1,47 @@
+/* TaskItem.css */
+.task-item {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.task-item.completed {
+  background-color: #e0ffe0;
+}
+
+.task-item h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.task-item p {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.task-item small {
+  color: #888;
+  display: block;
+  margin-top: 5px;
+}
+
+.task-item button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.task-item button:hover {
+  background-color: #0056b3;
+}
