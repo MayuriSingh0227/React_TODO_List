@@ -35,9 +35,9 @@ Ensure you have Node.js installed. You can download it from [nodejs.org](https:/
 
 ### Installation
 1. **Clone the Repository** : 
-   git clone https://github.com/MayuriSingh0227/todo-list-app.git
+   git clone https://github.com/MayuriSingh0227/React_TODO_List.git
 2. **Navigate to the Project Directory** :
-   cd todo-list-app
+   cd React_TODO_List
 3. **Install Dependencies** :
    npm install
 4. **Start the Development Server** :
